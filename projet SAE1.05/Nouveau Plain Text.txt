@@ -1,0 +1,8 @@
+name = ['Flag [.]', 'Flag [P]', 'Flag [S]']
+data = [A,P,S]
+
+explode=(0, 0, 0)
+plt.pie(data, explode=explode, labels=name, autopct='%1.1f%%', startangle=90, shadow=True)
+plt.axis('equal')
+plt.savefig("graphe1.png")
+plt.show()
