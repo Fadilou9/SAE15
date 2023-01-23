@@ -225,21 +225,21 @@ htmlcontenu='''
 '''%(framecounter,flagcounterP,flagcounterS,flagcounter,requestcounter,replycounter,seqcounter,wincounter,ackcounter)
 
 #ouverture d'un fichier csv = open a csv file for data extracted from txt file untreated 
-with open('données.csv', 'w', newline='') as fichiercsv:
+with open('récap.csv', 'w', newline='') as fichiercsv:
     writer = csv.writer(fichiercsv)
     writer.writerow(['Heure','IP source','IP destination','Flag','Seq','Length'])
     writer.writerows(zip(heure,ipsr,ipde,flag,seq,longueur))
     fichiercsv.close()
     
 #ouverture d'un fichier csv    = open a csv file for different stats
-with open('Stats.csv', 'w', newline='') as fichier2:
+with open('statistiques.csv', 'w', newline='') as fichier2:
     writer = csv.writer(fichier2)
     writer.writerow(['Flag[P] (PUSH)','Flag[S] (SYN)','Flag[.] (ACK)','Nombre total de trames',"nombre de request","nombre de reply","nombre de sequence","nombre de acknowledg","nombre de window"])
     writer.writerows(zip(flagcounterP,flagcounterS,flagcounter,framecounter,requestcounter,replycounter,seqcounter,ackcounter,wincounter))
     fichier2.close()
     
 #partie page  web = open a web page with important information and statistics
-with open("data.html","w") as html:
+with open("statistiques.html","w") as html:
     html.write(htmlcontenu)
     print("page web créée avec succès")
 
